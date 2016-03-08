@@ -1,10 +1,13 @@
+//define motor pwm pins, can be changed to anything in most cases (l/r = left/right F/R = Forward/Reverse)
 const int lF = 13;
 const int lR = 12;
 const int rF = 14;
 const int rR = 16;
 
+//buzzer pindef
 const int buzz = 5;
 
+//Drive function w/ Input of -1023 to 1023 for Left & Right Motor
 void drive(int L, int R)
 {
 	//Left Side
@@ -44,6 +47,7 @@ void drive(int L, int R)
 
 int buzzer = 0;
 
+//define motor & buzzer pins as outputs
 void setup()
 {
 	pinMode(lF, OUTPUT);
@@ -55,42 +59,43 @@ void setup()
 
 void loop()
 {
+	//buzzer loop (run through the drive loop, and every 3rd time, turn on the buzzer for 500msecs)
 	if (buzzer <= 2)
 	{
-	//forward
-	drive(1023, 1023);
-	delay(1000);
-	drive(0, 0);
-	delay(100);
+		//forward
+		drive(1023, 1023);
+		delay(1000);
+		drive(0, 0);
+		delay(100);
 
-	//back
-	drive(-1023, -1023);
-	delay(1000);
-	drive(0, 0);
-	delay(100);
+		//back
+		drive(-1023, -1023);
+		delay(1000);
+		drive(0, 0);
+		delay(100);
 	
-	//left
-	drive(1023, -1023);
-	delay(1000);
-	drive(0, 0);
-	delay(100);
+		//left
+		drive(1023, -1023);
+		delay(1000);
+		drive(0, 0);
+		delay(100);
 
-	//right
-	drive(-1023, 1023);
-	delay(1000);
-	drive(0, 0);
-	delay(100);
+		//right
+		drive(-1023, 1023);
+		delay(1000);
+		drive(0, 0);
+		delay(100);
 
 	}
 	else
 	{
-	buzzer = 0;
+		buzzer = 0;
 	
-	//horn
-	digitalWrite(buzz, 1);
-	delay(500);
-	digitalWrite(buzz, 0);
-	delay(100);
+		//horn
+		digitalWrite(buzz, 1);
+		delay(500);
+		digitalWrite(buzz, 0);
+		delay(100);
 	}
-	buzzer = buzzer + 1;	
+	buzzer++;	
 }
