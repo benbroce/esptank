@@ -70,7 +70,7 @@ const int lR = 12;
 const int rF = 14;
 const int rR = 16;
 
-//motor control
+//motor control (pwm motors w/ input from -1023 to 1023 on each channel)
 void drive(int L, int R)
 {
 	//Left Side
