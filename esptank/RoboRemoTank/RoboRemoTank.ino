@@ -2,6 +2,7 @@
 #include <WiFiClient.h>
 
 //wificonfig
+WiFi.setMode(WIFI_AP);
 const char *ssid = "esptank";
 const char *pw = "huzzah!8266";
 IPAddress ip(192, 168, 0, 1); 
