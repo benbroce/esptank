@@ -2,7 +2,6 @@
 #include <WiFiClient.h>
 
 //wificonfig
-WiFi.setMode(WIFI_AP);
 const char *ssid = "esptank";
 const char *pw = "huzzah!8266";
 IPAddress ip(192, 168, 0, 1); 
@@ -116,6 +115,7 @@ void setup()
 	cmdIndex = 0;
 
 	//start TCP server
+	WiFi.mode(WIFI_AP);
 	WiFi.softAPConfig(ip, ip, netmask);
 	WiFi.softAP(ssid, pw);
 	server.begin();
