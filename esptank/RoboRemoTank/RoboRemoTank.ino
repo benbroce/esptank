@@ -1,3 +1,6 @@
+//Adapted from RoboRemo's open example code found at:
+//http://www.roboremo.com/esp8266-wifi-rc-car.html
+
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 
